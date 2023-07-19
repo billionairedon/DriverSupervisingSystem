@@ -51,7 +51,6 @@ class EnteringAccount : AppCompatActivity() {
                             Log.d(TAG, "DocumentSnapshot data: ${document.data}")
                             val information = document.data
                             val dataName = information?.get("Name") as String
-                            intent.putExtra(MemberInformation.Name,dataName)
                             val intent = Intent(this, MainActivity::class.java)
                             intent.putExtra("key",dataName)
                             startActivity(intent)

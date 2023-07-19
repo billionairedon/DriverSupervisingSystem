@@ -40,16 +40,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
-                    android:text="홍길동 님의 운전 점수"
+                    android:text="@string/Name"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="@color/green2"/>
 
                 <TextView
+                    android:id="@+id/tv_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="95점"
+                    android:text=""
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:textColor="@color/green2"/>
@@ -106,7 +107,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_menubar"
+        android:id="@+id/ll_menu_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -117,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@id/ll_qr_code">
 
         <Button
-            android:id="@+id/btn조회"
+            android:id="@+id/btnInquiry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
@@ -127,7 +128,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btn점수조회"
+            android:id="@+id/btnScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="6dp"
@@ -138,7 +139,7 @@
             />
 
         <Button
-            android:id="@+id/btn설정"
+            android:id="@+id/btnSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="설정"

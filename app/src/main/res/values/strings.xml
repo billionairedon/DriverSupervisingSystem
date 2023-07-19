@@ -4,5 +4,5 @@
     <string name="PasswordHint">8자 이상 입력</string>
     <string name="Password">Password</string>
     <string name="Email">Email Address</string>
-    <string name="confirm_password">Confirm password</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>
