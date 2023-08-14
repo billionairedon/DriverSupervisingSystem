@@ -19,7 +19,6 @@ class EnteringAccount : AppCompatActivity() {
 
     private var auth : FirebaseAuth? = null
     private var db = Firebase.firestore
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entering_account)

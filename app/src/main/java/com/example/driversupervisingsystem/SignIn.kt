@@ -16,7 +16,6 @@ class SignIn : AppCompatActivity() {
         tvSignIn.setOnClickListener {
             val intent = Intent(this, EnteringAccount::class.java)
             startActivity(intent)
-            finish()
         }
 
         tvCreateAccount.setOnClickListener {

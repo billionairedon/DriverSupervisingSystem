@@ -14,6 +14,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import org.w3c.dom.Text
 
 class CreateAccount : AppCompatActivity() {
 
@@ -30,7 +31,6 @@ class CreateAccount : AppCompatActivity() {
         val etPassword2 : EditText= findViewById(R.id.et_new_password2)
         val btnCreateAccount : Button = findViewById(R.id.btn_create_account)
         auth = Firebase.auth
-
 
         btnCreateAccount.setOnClickListener {
             when{

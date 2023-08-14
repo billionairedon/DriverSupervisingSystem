@@ -4,10 +4,12 @@ import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.service.voice.VoiceInteractionSession.ActivityId
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.example.driversupervisingsystem.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.auth.ktx.auth
@@ -18,26 +20,31 @@ class MainActivity : AppCompatActivity() {
 
     private var auth : FirebaseAuth? = null
     private var receivedName : String? = null
+    private var binding : ActivityMainBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
-        val tvScore : TextView = findViewById(R.id.tv_score)
-        val ivQrcode : ImageView = findViewById(R.id.qr_code)
-        val tvName : TextView = findViewById(R.id.tv_name)
-        val btnInquiry : Button = findViewById(R.id.btnInquiry)
+        if(supportActionBar != null){
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        }
 
+        setSupportActionBar(binding?.actionbarMain)
+        binding?.actionbarMain?.setNavigationOnClickListener {
+            onBackPressed()
 
+        }
 
         receivedName = try{
             intent.getStringExtra("key") as String
         }catch(e: NullPointerException){
             intent.getStringExtra("key2") as String
         }
-        tvName.text = receivedName
+        binding?.tvName?.text = receivedName
 
-        btnInquiry.setOnClickListener {
+        binding?.btnInquiry?.setOnClickListener {
             val intent = Intent(this, DataInquiry::class.java)
             intent.putExtra("name",receivedName)
             startActivity(intent)
@@ -45,4 +52,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
 }

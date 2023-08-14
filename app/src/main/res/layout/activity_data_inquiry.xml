@@ -4,16 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DataInquiry">
+    tools:context=".DataInquiry"
+    android:background="@color/green1">
 
-    <TextView
-        android:id="@+id/tv_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <TableLayout
+        android:id="@+id/cl_background"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="14sp"
-        android:gravity="center"
-        android:layout_marginTop="4dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="@string/Name"
+                android:textColor="@color/green4"
+                android:background="@color/white"
+                android:gravity="center"
+                android:layout_margin="1dp" />
+
+            <TextView
+                android:id="@+id/tv_username2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="14sp"
+                android:text="Name2"
+                android:textColor="@color/green4"
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:background="@color/white" />
+
+        </TableRow>
+
+
+    </TableLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
