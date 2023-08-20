@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private var auth : FirebaseAuth? = null
     private var receivedName : String? = null
+    private var receivedEmail : String? = null
     private var binding : ActivityMainBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,17 +37,20 @@ class MainActivity : AppCompatActivity() {
             onBackPressed()
 
         }
-
-        receivedName = try{
-            intent.getStringExtra("key") as String
-        }catch(e: NullPointerException){
-            intent.getStringExtra("key2") as String
-        }
-        binding?.tvName?.text = receivedName
+        receivedName = intent.getStringExtra(MemberInformation.Name)
+        receivedEmail = intent.getStringExtra(MemberInformation.Email)
+       // receivedName = try{
+       //     intent.getStringExtra("key") as String
+       // }catch(e: NullPointerException){
+       //     intent.getStringExtra("key2") as String
+       // }
+        binding?.tvName?.text = receivedName.plus("님의 운전점수")
 
         binding?.btnInquiry?.setOnClickListener {
             val intent = Intent(this, DataInquiry::class.java)
-            intent.putExtra("name",receivedName)
+            intent.putExtra(MemberInformation.Name,receivedName)
+            intent.putExtra(MemberInformation.Email,receivedEmail)
+
             startActivity(intent)
         }
 

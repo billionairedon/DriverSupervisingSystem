@@ -43,8 +43,8 @@ class CreateAccount : AppCompatActivity() {
                     val txPassword : String = etPassword.text.toString()
                     createAccount(txEmailAddress,txPassword)
                     createUserField(txEmailAddress, txName)
-                    val intent = Intent(this,MainActivity::class.java)
-                    intent.putExtra("key2",txName)
+                    val intent = Intent(this,EnteringAccount::class.java)
+                    //intent.putExtra("key2",txName)
                     startActivity(intent)
                     finish()
                 }else{
